@@ -12,7 +12,9 @@ const DIGITS : [[&str; 11]; 7] = [
 ];
 
 fn main() {
+    // This line should clear the screen
     print!("\x1b[2J");
+    // This line should clear the prompt
     print!("\x1b[?25l");
     loop {
         let t = Local::now();
@@ -29,6 +31,7 @@ fn main() {
             println!();
         }
         std::thread::sleep(std::time::Duration::from_millis(999));
+        // This line should substitute the old printed time with the new one
         print!("\x1b[7A");
     }
 }
